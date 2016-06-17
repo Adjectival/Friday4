@@ -8,6 +8,11 @@ ul {
   list-style-type: none;
 }
 
+.orderUp {
+  color: darkgreen;
+  font-size: 17px;
+}
+
 #printout {
   background-color: pink;
   width: 90%;

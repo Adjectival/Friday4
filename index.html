@@ -16,14 +16,13 @@
       <form id="buypizza">
         <div class="row">
           <div class="col-md-6">
-
-            <div class="form-group">
+            <div class="form-group" id="sizes">
               <label for="sizes">Pie size</label>
-              <select class="form-control" id="sizes">
-                <option value="8">Personal (8")</option>
-                <option value="12">Two-for (12")</option>
-                <option value="16">Regular (16")</option>
-                <option value="24">Family (24")</option>
+              <select class="form-control">
+                <option value="Personal">Personal (8")</option>
+                <option value="Regular">Regular (12")</option>
+                <option value="Large">Large (16")</option>
+                <option value="Family-size">Family (24")</option>
               </select>
             </div>
             <div class="form-group">
@@ -37,11 +36,11 @@
                 <li><input id="onions" type="checkbox" value="onions"> onions</li>
               <ul>
             </div>
-            <div><span class="btn btn-warning" id="new-topping">Another topping</span>
-            <button type="submit" class="btn btn-primary">Pizza ASAP!</button>
+            <div><span class="btn btn-warning" id="no-topping">Reset toppings</span>
+            <button type="submit" class="btn btn-primary">Order this Pizza!</button>
             </div>
             <div id="printout">
-              <h3>Your order</h3>
+              <h2>Your order:</h2>
               <ol id="pizzaList">
               </ol>
             </div>
@@ -49,7 +48,7 @@
           <div class="col-md-6">
             <div>
               <span><img src="img/pixabaypie.jpg" class="img-responsive img-rounded"></span>
-              <h2>Your order total:</h2><span id="total">$0</span>
+              <h2>Your total today:</h2><span id="total">$0</span>
             </div>
           </div>
         </div>

@@ -1,9 +1,11 @@
 // backend logic
 function Pizza(sizes) {
-  this.Toppings = [];
-  this.Sizes = sizes;
+  this.toppings = [];
+  this.sizes = sizes;
 }
-
+Pizza.prototype.makePizza = function() {
+  return "So you want a " + this.sizes + " " + this.toppings + " pizza?";
+}
 function Toppings(bacon,pepperoni,chicken,pineapple,mushrooms,onions) {
   this.bacon = bacon;
   this.pepperoni = pepperoni;
@@ -17,40 +19,38 @@ Toppings.prototype.addToppings = function() {
   return
   this.bacon + ", " + this.pepperoni + ", " + this.chicken + ", " + this.pineapple + ", " +   this.mushrooms + ", " + this.onions;
 }
-// Sizes
-// 'Personal (8")'
-// 'Two-for (12")'
-// 'Regular (16")'
-// 'Family (24")'
 
 Pizza.prototype.cost = function() {
 
 }
 
+function resetForm() {
+    $('input:checkbox').removeAttr('checked');
+}
+
 // frontend logic
 $(document).ready(function() {
-  $("form").submit(function(event){
+
+  $('#no-topping').click(function() {
+    resetForm();
+  });
+
+  $('form').submit(function(event){
     event.preventDefault();
+    var newPizza = new Pizza(sizes);
+    $('#toppings').each(function() {
+      var chooseBacon = $(this).find('input#bacon').val();
+      var choosePepperoni = $(this).find('input#pepperoni').val();
+      var chooseChicken = $(this).find('input#chicken').val();
+      var choosePineapple = $(this).find('input#pineapple').val();
+      var chooseMushrooms = $(this).find('input#mushrooms').val();
+      var chooseOnions = $(this).find('input#onions').val();
+      var newToppings = new Toppings(chooseBacon,choosePepperoni,chooseChicken,choosePineapple,chooseMushrooms,chooseOnions);
+      newPizza.toppings.push(newToppings);
+    });
 
-    if(document.getElementById('bacon').checked) {
-      console.log("bacon");
-    }
-    if(document.getElementById('pepperoni').checked) {
-      console.log("pepperoni");
-    }
-    if(document.getElementById('chicken').checked) {
-      console.log("chicken");
-    }
-    if(document.getElementById('pineapple').checked) {
-      console.log("pineapple");
-    }
-    if(document.getElementById('mushrooms').checked) {
-      console.log("mushrooms");
-    }
-    if(document.getElementById('onions').checked) {
-      console.log("onions");
-    }
+    var chooseSize = $('#sizes option:selected').val();
 
-
+    $("ol#pizzaList").html("<li><span class='orderUp'>" + newPizza.makePizza() + "</span></li>");
   });
 });
