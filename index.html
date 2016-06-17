@@ -26,41 +26,29 @@
                 <option value="24">Family (24")</option>
               </select>
             </div>
-            <!-- <div class="form-group">
-              <label for="crusts">Crust type</label>
-              <select class="form-control" id="crusts">
-                <option value="white">white flour</option>
-                <option value="grain">whole grain</option>
-                <option value="corn">corn flour</option>
-                <option value="veggie">vegetable (gluten free)</option>
-              </select>
-            </div> -->
-            <!-- <div class="form-group">
-              <label for="cheeses">Cheeses</label>
-              <select class="form-control" id="cheeses">
-                <option value="mozzarella">mozzarella</option>
-                <option value="cheddar">cheddar</option>
-                <option value="gorgonzola">gorgonzola</option>
-                <option value="almond">almond (vegan)</option>
-              </select>
-            </div> -->
             <div class="form-group">
               <label for="toppings">Toppings</label>
-              <select class="form-control" id="toppings">
-                <option value="bacon">bacon</option>
-                <option value="pepperoni">pepperoni</option>
-                <option value="pineapple">pineapple</option>
-                <option value="mushrooms">mushrooms</option>
-                <option value="onions">onions</option>
-              </select>
+              <ul id="toppings">
+                <li><input id="bacon" type="checkbox" value="bacon"> bacon</li>
+                <li><input id="pepperoni" type="checkbox" value="pepperoni"> pepperoni</li>
+                <li><input id="chicken" type="checkbox" value="chicken"> chicken</li>
+                <li><input id="pineapple" type="checkbox" value="pineapple"> pineapple</li>
+                <li><input id="mushrooms" type="checkbox" value="mushrooms"> mushrooms</li>
+                <li><input id="onions" type="checkbox" value="onions"> onions</li>
+              <ul>
             </div>
-            <span class="btn btn-warning" id="new-topping">Another topping</span>
-
+            <div><span class="btn btn-warning" id="new-topping">Another topping</span>
             <button type="submit" class="btn btn-primary">Pizza ASAP!</button>
+            </div>
+            <div id="printout">
+              <h3>Your order</h3>
+              <ol id="pizzaList">
+              </ol>
+            </div>
           </div>
           <div class="col-md-6">
-            <div id="printout">
-              <span id="pizzaimg"><img src="img/pixabaypie.jpg" class="img-responsive img-rounded"></span>
+            <div>
+              <span><img src="img/pixabaypie.jpg" class="img-responsive img-rounded"></span>
               <h2>Your order total:</h2><span id="total">$0</span>
             </div>
           </div>

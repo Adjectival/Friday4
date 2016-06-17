@@ -4,7 +4,12 @@
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #printout {
   background-color: pink;
   width: 90%;
+  /*display: none;*/
 }
