@@ -1,0 +1,71 @@
+<!-- Create a website for a pizza company where a user can choose one or more individual toppings (cheese, pepperoni, artichoke, anchovy, etc) and a size to order a pizza and see the final cost. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pizza4u</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pizza 4 U</h1>
+      </div>
+      <form id="buypizza">
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="form-group">
+              <label for="sizes">Pie size</label>
+              <select class="form-control" id="sizes">
+                <option value="8">Personal (8")</option>
+                <option value="12">Two-for (12")</option>
+                <option value="16">Regular (16")</option>
+                <option value="24">Family (24")</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="crusts">Crust type</label>
+              <select class="form-control" id="crusts">
+                <option value="white">white flour</option>
+                <option value="grain">whole grain</option>
+                <option value="corn">corn flour</option>
+                <option value="veggie">vegetable (gluten free)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cheeses">Cheeses</label>
+              <select class="form-control" id="cheeses">
+                <option value="mozzarella">mozzarella</option>
+                <option value="cheddar">cheddar</option>
+                <option value="gorgonzola">gorgonzola</option>
+                <option value="almond">almond (vegan)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="toppings">Toppings</label>
+              <select class="form-control" id="toppings">
+                <option value="bacon">bacon</option>
+                <option value="pepperoni">pepperoni</option>
+                <option value="pineapple">pineapple</option>
+                <option value="mushrooms">mushrooms</option>
+                <option value="onions">onions</option>
+              </select>
+            </div>
+            <span class="btn btn-warning" id="new-topping">Another topping</span>
+
+            <button type="submit" class="btn btn-primary">Pizza ASAP!</button>
+          </div>
+          <div class="col-md-6">
+            <div id="printout">
+              <span id="pizzaimg"><img src="img/pixabaypie.jpg" class="img-responsive img-rounded"></span>
+              <h2>Your order total:</h2><span id="total">$0</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.jumbotron {
+  background-color: orange;
+  color: darkgreen;
+  text-align: center;
+}
+
+#printout {
+  background-color: pink;
+  width: 90%;
+}
