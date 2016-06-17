@@ -1,7 +1,7 @@
 // backend logic
 function Pizza(sizes,toppings) {
   this.sizes = sizes;
-  this.toppings = [];
+  this.toppings = toppings;
 }
 function Topping(bacon,pepperoni,chicken,pineapple,mushrooms,onions) {
   this.bacon = bacon;
@@ -13,7 +13,7 @@ function Topping(bacon,pepperoni,chicken,pineapple,mushrooms,onions) {
 }
 
 Pizza.prototype.makePizza = function() {
-  return "you ordered a " + this.sizes + " " + this.toppings + " pizza";
+  return "you ordered a " + this.sizes + " pizza with " + this.toppings;
 }
 Topping.prototype.addTopping = function() {
   return
@@ -43,21 +43,9 @@ $(document).ready(function() {
     $.each($('input[name="topping"]:checked'),function() {
         allToppings.push($(this).val());
     });
-    console.log("Choices: " + allToppings.join(", "));
+    allToppings.join(', ');
 
     var newPizza = new Pizza(chooseSize, allToppings);
-// --refactored with above--
-    // $('#toppings').each(function() {
-    //   var chooseBacon = $(this).find('input#bacon:checked').val();
-    //   var choosePepperoni = $(this).find('input#pepperoni:checked').val();
-    //   var chooseChicken = $(this).find('input#chicken:checked').val();
-    //   var choosePineapple = $(this).find('input#pineapple:checked').val();
-    //   var chooseMushrooms = $(this).find('input#mushrooms:checked').val();
-    //   var chooseOnions = $(this).find('input#onions:checked').val();
-    //   var newTopping = new Toppings(chooseBacon,choosePepperoni,chooseChicken,choosePineapple,chooseMushrooms,chooseOnions);
-    //   newPizza.toppings.push(newTopping);
-    // });
-    debugger;
 
     $('ol#pizzaList').html('<li><span class="orderUp">' + newPizza.makePizza() + '</span></li>');
   });
