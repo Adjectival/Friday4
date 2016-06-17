@@ -3,28 +3,27 @@ function Pizza(sizes,toppings) {
   this.sizes = sizes;
   this.toppings = toppings;
 }
-function Topping(bacon,pepperoni,chicken,pineapple,mushrooms,onions) {
-  this.bacon = bacon;
-  this.pepperoni = pepperoni;
-  this.chicken = chicken;
-  this.pineapple = pineapple;
-  this.mushrooms = mushrooms;
-  this.onions = onions;
-}
 
 Pizza.prototype.makePizza = function() {
   return "you ordered a " + this.sizes + " pizza with " + this.toppings;
 }
-Topping.prototype.addTopping = function() {
-  return
-  this.bacon + ", " + this.pepperoni + ", " + this.chicken + ", " + this.pineapple + ", " +   this.mushrooms + ", " + this.onions;
-}
-Pizza.prototype.cost = function() {
 
+var cost = 0;
+Pizza.prototype.price = function() {
+    if (this.sizes==="Family-size"){
+    cost=16;
+    } else if (this.sizes==="Large") {
+    cost=12;
+    } else if (this.sizes==="Regular") {
+    cost=10;
+    } else {
+    cost=7;
+    }
+  return cost;
 }
 
 function resetForm() {
-    $('input:checkbox').removeAttr('checked');
+  document.getElementById("buypizza").reset();
 }
 
 // frontend logic
@@ -43,10 +42,10 @@ $(document).ready(function() {
     $.each($('input[name="topping"]:checked'),function() {
         allToppings.push($(this).val());
     });
-    allToppings.join(', ');
+    allToppings.join(' , ');
 
     var newPizza = new Pizza(chooseSize, allToppings);
-
     $('ol#pizzaList').html('<li><span class="orderUp">' + newPizza.makePizza() + '</span></li>');
+    $('#total').html('$' + newPizza.price());
   });
 });

@@ -10,11 +10,11 @@ ul {
 
 .orderUp {
   color: darkgreen;
-  font-size: 17px;
+  font-size: 27px;
 }
 
 #printout {
-  background-color: pink;
+  background-color: lightblue;
   width: 90%;
   /*display: none;*/
 }
