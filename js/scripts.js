@@ -5,7 +5,7 @@ function Pizza(sizes,toppings) {
 }
 
 Pizza.prototype.makePizza = function() {
-  return "you ordered a " + this.sizes + " pizza with " + this.toppings;
+  return "you ordered a " + this.sizes + " pizza with cheese " + this.toppings;
 }
 
 var cost = 0;
@@ -19,7 +19,20 @@ Pizza.prototype.price = function() {
     } else {
     cost=7;
     }
-  return cost;
+    if (this.toppings.includes("bacon")) {
+    cost = cost+2;
+    } else if (this.toppings.includes("pepperoni")) {
+    cost = cost+1.5;
+    } else if (this.toppings.includes("chicken")) {
+    cost = cost+1.5;
+    } else if (this.toppings.includes("pineapple")) {
+    cost = cost+2;
+    } else if (this.toppings.includes("mushrooms")) {
+    cost = cost+1;
+    } else if (this.toppings.includes("onions")) {
+    cost = cost+1;
+    }
+    return cost;
 }
 
 function resetForm() {
@@ -45,7 +58,7 @@ $(document).ready(function() {
     allToppings.join(' , ');
 
     var newPizza = new Pizza(chooseSize, allToppings);
-    $('ol#pizzaList').html('<li><span class="orderUp">' + newPizza.makePizza() + '</span></li>');
+    $('ul#pizzaList').html('<li><span class="orderUp">' + newPizza.makePizza() + '</span></li>');
     $('#total').html('$' + newPizza.price());
   });
 });

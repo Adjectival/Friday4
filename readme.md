@@ -11,7 +11,7 @@ _Web page with order form built around JavaScript constructor rubric. Displays t
 ## Specifications
 
 * _Allow the user to choose toppings and size for the pizza they'd like to order._  
-  **_Example Input: User selects personal size, mushroom, pepperoni, clicks 'Pizza ASAP'._**
+  **_Example Input: User selects personal size, mushroom, pepperoni, clicks 'Order' button._**
   **_Output Input: Order is placed for personal pizza with mushroom & pepperoni._**
 
 * _Create a pizza object constructor with properties for toppings and size._
@@ -20,7 +20,7 @@ _Web page with order form built around JavaScript constructor rubric. Displays t
 
 * _Create a prototype method for the cost of a pizza depending on the selections chosen. Use your own formula for this._
   **_Example Input: User chooses personal size, mushroom, pepperoni._**
-  **_Output Input: Total cost is $10.50 ._**
+  **_Output Input: Total cost is $10._**
 
 
 ## Support and contact details
