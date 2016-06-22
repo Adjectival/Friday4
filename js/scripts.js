@@ -4,7 +4,7 @@ function Pizza(sizes,toppings, price) {
   this.toppings = toppings;
 }
 
-Pizza.prototype.makePizza = function() {
+Pizza.prototype.findPizzaPrice = function() {
   if (this.sizes==="Family-size"){
     price = 16;
   } else if (this.sizes==="Large") {
@@ -40,7 +40,7 @@ $(document).ready(function() {
     resetForm();
   });
 
-  $('form').submit(function(event) {
+  $('form#buypizza').submit(function(event) {
     event.preventDefault();
     var chooseSize = $('#sizes').val();
     var allToppings = [];
@@ -50,6 +50,6 @@ $(document).ready(function() {
     allToppings.join(' , ');
 
     var newPizza = new Pizza(chooseSize, allToppings);
-    $('ul#pizzaList').html('<li><span class="orderUp">Your total comes to $' + newPizza.makePizza() + ' for the ' + newPizza.sizes + ' pizza with ' + newPizza.toppings + '</span></li>');
+    $('ul#pizzaList').html('<li><span class="orderUp">Your total comes to $' + newPizza.findPizzaPrice() + ' for the ' + newPizza.sizes + ' pizza with ' + newPizza.toppings + '</span></li>');
   });
 });
