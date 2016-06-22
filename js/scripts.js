@@ -1,44 +1,38 @@
 // backend logic
-function Pizza(sizes,toppings) {
+function Pizza(sizes,toppings, price) {
   this.sizes = sizes;
   this.toppings = toppings;
 }
 
 Pizza.prototype.makePizza = function() {
-  return "you ordered a " + this.sizes + " pizza with cheese " + this.toppings;
-}
-
-var cost = 0;
-Pizza.prototype.price = function() {
-    if (this.sizes==="Family-size"){
-    cost=16;
-    } else if (this.sizes==="Large") {
-    cost=12;
-    } else if (this.sizes==="Regular") {
-    cost=10;
-    } else {
-    cost=7;
-    }
-    if (this.toppings.includes("bacon")) {
-    cost = cost+2;
-    } else if (this.toppings.includes("pepperoni")) {
-    cost = cost+1.5;
-    } else if (this.toppings.includes("chicken")) {
-    cost = cost+1.5;
-    } else if (this.toppings.includes("pineapple")) {
-    cost = cost+2;
-    } else if (this.toppings.includes("mushrooms")) {
-    cost = cost+1;
-    } else if (this.toppings.includes("onions")) {
-    cost = cost+1;
-    }
-    return cost;
+  if (this.sizes==="Family-size"){
+    price = 16;
+  } else if (this.sizes==="Large") {
+    price = 12;
+  } else if (this.sizes==="Regular") {
+    price = 10;
+  } else {
+    price = 7;
+  }
+  if (this.toppings.includes("bacon")) {
+    price = price+2;
+  } else if (this.toppings.includes("pepperoni")) {
+    price = price+1.5;
+  } else if (this.toppings.includes("chicken")) {
+    price = price+1.5;
+  } else if (this.toppings.includes("pineapple")) {
+    price = price+2;
+  } else if (this.toppings.includes("mushrooms")) {
+    price = price+1;
+  } else if (this.toppings.includes("onions")) {
+    price = price+1;
+  }
+  return price;
 }
 
 function resetForm() {
   document.getElementById("buypizza").reset();
 }
-
 // frontend logic
 $(document).ready(function() {
 
@@ -48,9 +42,7 @@ $(document).ready(function() {
 
   $('form').submit(function(event) {
     event.preventDefault();
-
     var chooseSize = $('#sizes').val();
-
     var allToppings = [];
     $.each($('input[name="topping"]:checked'),function() {
         allToppings.push($(this).val());
@@ -58,7 +50,6 @@ $(document).ready(function() {
     allToppings.join(' , ');
 
     var newPizza = new Pizza(chooseSize, allToppings);
-    $('ul#pizzaList').html('<li><span class="orderUp">' + newPizza.makePizza() + '</span></li>');
-    $('#total').html('$' + newPizza.price());
+    $('ul#pizzaList').html('<li><span class="orderUp">Your total comes to $' + newPizza.makePizza() + ' for the ' + newPizza.sizes + ' pizza with ' + newPizza.toppings + '</span></li>');
   });
 });
